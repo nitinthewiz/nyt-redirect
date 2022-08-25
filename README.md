@@ -18,9 +18,9 @@ I've wanted to play with Cloudflare Workers since some time, so this is my way t
 
 You can go to the following URLs - 
 
-[nyt.nitin.omg.lol](https://nyt.nitin.omg.lol) - open today's frontpage PDF
-[nyt.nitin.omg.lol/about](https://nyt.nitin.omg.lol/about) - open my OMG.LOL profile which should have more info about this
-[nyt.nitin.omg.lol/frontpage](https://nyt.nitin.omg.lol/frontpage) - this does the same thing as the first link
+[nyt.nitin.omg.lol](https://nyt.nitin.omg.lol) - open today's frontpage PDF \
+[nyt.nitin.omg.lol/about](https://nyt.nitin.omg.lol/about) - open my OMG.LOL profile which should have more info about this \
+[nyt.nitin.omg.lol/frontpage](https://nyt.nitin.omg.lol/frontpage) - this does the same thing as the first link \
 [nyt.nitin.omg.lol/todayspaper](https://nyt.nitin.omg.lol/todayspaper) - NYT also has a version that's a proper web app, for logged in users. Go here to read the full news.
 
 ## Gratis
