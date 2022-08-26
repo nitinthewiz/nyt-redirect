@@ -39,12 +39,12 @@ export default {
 
         var redir_link = "";
 
-        if (pathname == "frontpage"){
-            var localDate = Date.now();
+        if (pathname == "frontpage" || pathname == "front"){
+            var localDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
             console.log(localDate);
             var curr_date = formatDate(localDate);
             redir_link = "https://static01.nyt.com/images/" + curr_date + "/nytfrontpage/scan.pdf";
-        } else if (pathname == "todayspaper"){
+        } else if (pathname == "todayspaper" || pathname == "today"){
             redir_link = "https://www.nytimes.com/section/todayspaper";
         } else if (pathname == "about"){
             redir_link = "https://nitin.omg.lol";
@@ -54,7 +54,8 @@ export default {
         //     var curr_date = formatDate(localDate);
         //     redir_link = "https://static01.nyt.com/images/" + curr_date + "/nytfrontpage/scan.pdf";
         } else {
-            var localDate = Date.now();
+            var localDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+            console.log(localDate);
             var curr_date = formatDate(localDate);
             redir_link = "https://static01.nyt.com/images/" + curr_date + "/nytfrontpage/scan.pdf";
         }
