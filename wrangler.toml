@@ -1,3 +1,6 @@
 name = "nyt-redirect"
 main = "src/index.js"
 compatibility_date = "2022-08-25"
+routes = [
+	{ pattern = "nyt.nitinkhanna.com", custom_domain = true }
+]
