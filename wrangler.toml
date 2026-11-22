@@ -14,4 +14,4 @@ binding = "PDF_CACHE"
 bucket_name = "nyt-redirector-bucket"
 
 [triggers]
-crons = ["0 11 * * *"]   # UTC; NYT publishes the PDF early morning ET
+crons = ["0 11 * * *" , "0 13 * * *"]   # UTC; NYT publishes the PDF early morning ET ; run twice a day in case NYT hasn't published yet

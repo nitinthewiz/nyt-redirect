@@ -1,12 +1,13 @@
 export function formatDate(r2 = false) {
     const curr_date = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+    console.log("curr_date - ");
     console.log(curr_date);
 
     const dt = new Date(curr_date);
     
-    var month = '' + (curr_date.getMonth() + 1),
-        day = '' + curr_date.getDate(),
-        year = curr_date.getFullYear();
+    var month = '' + (dt.getMonth() + 1),
+        day = '' + dt.getDate(),
+        year = dt.getFullYear();
 
     if (month.length < 2) 
         month = '0' + month;
