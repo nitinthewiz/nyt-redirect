@@ -8,22 +8,17 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-function formatDate(date) {
-    const dt = new Date(date)
-    var month = '' + (dt.getMonth() + 1),
-        day = '' + dt.getDate(),
-        year = dt.getFullYear();
+import { buildPdfUrl } from './helpers.js';
+import { pdfCachingService } from './cache.js';
 
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    return [year, month, day].join('/');
-};
 
 export default {
-	async fetch(request) {
+    async scheduled(controller, env, ctx) {
+        pdfCachingService(env);
+        console.log("cron processed");
+    },
+
+    async fetch(request) {
         console.log("------------------>");
         console.log("request.url - ");
         console.log(request.url);
@@ -40,26 +35,18 @@ export default {
         var redir_link = "";
 
         if (pathname == "frontpage" || pathname == "front"){
-            var localDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
-            console.log(localDate);
-            var curr_date = formatDate(localDate);
-            redir_link = "https://static01.nyt.com/images/" + curr_date + "/nytfrontpage/scan.pdf";
+            redir_link = buildPdfUrl()
         } else if (pathname == "todayspaper" || pathname == "today"){
             redir_link = "https://www.nytimes.com/section/todayspaper";
         } else if (pathname == "about"){
-            redir_link = "https://nitin.omg.lol";
-        // } else if (!Number.isNaN(Date.parse(pathname))){
-        //     console.log("in pathname day");
-        //     var localDate = new Date(pathname);
-        //     var curr_date = formatDate(localDate);
-        //     redir_link = "https://static01.nyt.com/images/" + curr_date + "/nytfrontpage/scan.pdf";
+            redir_link = "https://www.nitinkhanna.com";
         } else {
-            var localDate = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
-            console.log(localDate);
-            var curr_date = formatDate(localDate);
-            redir_link = "https://static01.nyt.com/images/" + curr_date + "/nytfrontpage/scan.pdf";
+            redir_link = buildPdfUrl()
         }
 
+
+        // const object = await env.PDF_CACHE.get(key);
+
         return Response.redirect(redir_link, 302);
-	},
+    },
 };

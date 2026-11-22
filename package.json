@@ -1,12 +1,12 @@
 {
-  "name": "nyt-redirect",
-  "version": "0.0.0",
-  "devDependencies": {
-    "wrangler": "2.0.27"
-  },
-  "private": true,
-  "scripts": {
-    "start": "wrangler dev",
-    "deploy": "wrangler publish"
-  }
+    "name": "nyt-redirect",
+    "version": "0.0.0",
+    "devDependencies": {
+        "wrangler": "^4.166.0"
+    },
+    "private": true,
+    "scripts": {
+        "start": "wrangler dev",
+        "deploy": "wrangler deploy"
+    }
 }
